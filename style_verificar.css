@@ -1,0 +1,50 @@
+body {
+	background-image:url(../imagens/back5.png);
+}
+.banner {
+	margin:auto;
+	height:305px;
+	width: 900px;
+	top: 0px;
+	left:17%;
+	background-image:url(logoadm.jpg);
+	
+}
+
+.menu {
+	margin:auto;
+	width:900px;
+
+}
+
+.conteudo {
+	overflow:auto;
+	margin:auto;
+	width: 900px;
+	background-color: #FF9900;
+	color:#FFF;
+	
+}
+
+#button
+{
+	position:static;
+	background-color: #FF6600;
+	width: 140px;
+	height: 30px;
+	margin:auto;
+}
+
+#button:active
+{
+	background-color:#000000;
+	color:#FF9900;
+}
+
+#form 
+{
+	padding-left:10px;
+	font-family:Verdana, Geneva, sans-serif;
+	float:none;
+
+}

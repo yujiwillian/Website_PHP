@@ -1,0 +1,51 @@
+body {
+	background-image:url(../imagens/back5.png);
+}
+.banner {
+	margin:auto;
+	height:305px;
+	width: 900px;
+	top: 0px;
+	left:17%;
+	background-image:url(logoadm.jpg);
+	
+}
+
+.menu {
+	margin:auto;
+	width:900px;
+
+}
+
+.conteudo {
+	margin:auto;
+	width:900px;
+	background-color: #FF9900;
+	color:#FFF;
+	overflow:auto;
+	
+}
+
+#button
+{
+	position:static;
+	background-color: #FF6600;
+	width: 200px;
+	height: 50px;
+	left:-900px;
+}
+
+#button:active
+{
+	background-color:#000000;
+	color:#FF9900;
+}
+
+#Text2
+{
+	 background-color:#FFF;
+	 color:#F90;	
+}
+
+
+

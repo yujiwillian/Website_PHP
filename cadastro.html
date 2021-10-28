@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Cadastrar Usuário</title>
+<!--Icone do site-->
+<link rel="shortcut icon" href="favicon.ico">
+<!--Estilo css usado na página-->
+<style type="text/css">
+      
+		
+				.tudo {
+	background:#F60;  
+border-radius: 10px;
+border:#000 double 4px;
+margin: 20px 6 0 10px;
+width: 650px;
+height: 100%;
+float:left;
+position:relative;
+	
+}
+
+#Submit1
+{
+	background-color:#000000;
+	color:#FF9900;
+	width:100px;
+	height:30px;
+}
+
+#Submit1:active
+{
+	background-color:#FF6600;
+	color:#000000;
+}
+
+#Submit1:hover
+{
+	background-color:#000000;
+	color:#FFFFFF;
+}
+
+#Submit2
+{
+	background-color:#000000;
+	color:#FF9900;
+	width:100px;
+	height:30px;
+}
+
+#Submit2:active
+{
+	background-color:#FF6600;
+	color:#000000;
+}
+
+#Submit2:hover
+{
+	background-color:#000000;
+	color:#FFFFFF;
+}
+		</style>
+</head>
+
+<body>
+<!--Efetua a ação no arquivo php-->
+<form name="FORMCLIENTE" action="cadastrarcliente.php" method="post">
+<div class="tudo">
+<p>NOME COMPLETO:
+<input id="Text1" name="txtnomecli" type="text" />
+<p>CPF:
+<input id="Text2" name="txtcpfcli" type="text" />
+<p>RG:
+<input id="Text3" name="txtrgcli" type="text" />
+<p>CIDADE:
+<input id="Text4" name="txtcidadecli" type="text" />
+<p>ESTADO:
+<input id="Text6" name="txtestadocli" type="text" />
+<p>ENDEREÇO:
+<input id="Text8" name="txtenderecocli" type="text" />
+<p>COMPLEMENTO:
+<input id="Text10" name="txtcomplementocli" type="text" />
+<p>CEP:
+<input id="Text12" name="txtcepcli" type="text" />
+<p>TELEFONE:
+<input id="Text14" name="txttelefonecli" type="text" />
+<p>CELULAR:
+<input id="Text16" name="txtcelularcli" type="text" />
+<p>E-MAIL:
+<input id="Text17" name="txtemailcli" type="text" />
+<p>USUÁRIO:
+<input id="Text18" name="txtusuariocli" type="text" />
+<p>SENHA:
+<input id="Text19" name="txtsenhacli" type="password" />
+<p><input id="Submit1" name="BOT1" type="submit" value="CADASTRAR" width="100" />
+<input id="Submit2" name="RESET" type="reset" value="LIMPAR"  width="100"/>
+</div>
+</form>
+</body>
+</html>

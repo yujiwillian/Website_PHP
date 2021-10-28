@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Home</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+    Esta é a página Login
+    <br />
+    <form id="login" name="login" method="post" action="login.html">
+    <span id="sprytextfield1">
+        <label for="loginU">
+            Usuario:<br />
+        </label>
+        <input type="text" name="loginU" id="loginU" />
+        <span class="textfieldRequiredMsg">value is required.</span></span>
+    <p>
+        <span id="sprypassword1">
+            <label for="senhaU">
+                Senha:
+                <br />
+            </label>
+            <input type="password" name="senhaU" id="senhaU" />
+            <span class="passwordRequiredMsg">A value is required.</span></span>
+        <p>
+            <input type="submit" name="confirmaU" id="confirmaU" value="Entrar" onclick="Validar()" />
+            <input type="submit" name="cadastrarU" id="cadastrarU" value="Cadastrar" />
+    </form>
+</body>
+</html>
+
+<script language="javascript" type="text/javascript">
+
+    function Validar() {
+
+        if (document.getElementById("loginU").value == "") {
+            alert('Digite o Login');
+            return false;
+        }
+
+    }
+
+
+</script>

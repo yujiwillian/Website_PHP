@@ -1,0 +1,42 @@
+﻿<html>
+	<head>
+		<title>.: Painel de fotos :.</title>
+<script language="javascript" type="text/javascript">
+<!--
+var Slide = new Array("http://www.codigofonte.com.br/img/livros/p/24.jpg", "http://www.codigofonte.com.br/img/livros/p/25.jpg", "http://www.codigofonte.com.br/img/livros/p/26.jpg");
+var indSlide = 0;
+var ultSlide = Slide.length -1;
+// Função controla a seqüência de slides.
+function MostraSlide(direcao){
+   indSlide = indSlide + direcao;
+   if(indSlide > ultSlide){indSlide = 0};
+   if(indSlide < 0) {indSlide = ultSlide};
+   document.FigSlide.src = Slide[indSlide];
+}
+//-->
+</script>
+	</head>
+	<body>
+		<table border="1" width="180" height="149">
+			<tr>
+				<td colspan="2" align="center">
+					<img src="http://www.codigofonte.com.br/img/livros/p/24.jpg" name="FigSlide" border="0">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<a href="javascript:MostraSlide(-1)">
+                    <b><font color="#800000">
+					<< Anterior</font></b></a>
+				</td>
+				<td>
+                    <p align="right">
+					<a href="javascript:MostraSlide(1)">
+                    <b><font color="#800000">
+					Próximo >></font></b></a>
+                    </p>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

@@ -1,0 +1,195 @@
+﻿body {
+	background-color:#000;	
+}
+ 
+.tudo {
+	height: 1500px;
+	width: 900px;
+	background-color: #000;
+	margin:auto;
+}
+
+.banner {
+	<!--Colocando um arquivo em flash-->
+<object width="900" height="263" loop="no">
+<param name="movie" value="betacityflashbanner.swf">
+<embed src="betacityflashbanner.swf" width="900" height="263" loop="no">
+</embed>
+</object>
+
+
+}
+
+.menu1 {
+	height: 1150px;
+	width:0px;
+	background-color:#FFFFFF;
+	top:100px;
+	float:left;
+	
+}
+
+.menu2 {
+	height:150px;
+	width:700px;
+	background-color:#FFFFFF;
+	float:right;	
+}
+
+
+.conteudo {
+	height: 1150px;
+	width: 700px;
+	background-color: #999999;
+	float: right;	
+}
+
+/*Menu CSS 1*/
+
+
+#menubv
+{
+width:200px;
+padding: 0;
+margin-top:0;
+font: 12px Verdana, sans-serif;
+
+}
+
+
+#menubv ul{
+   border:0px #F60 solid;
+   margin:0;
+   padding:0;
+   border-bottom:none;
+}
+
+#menubv li{ 
+ list-style:none; 
+ padding:6px;
+ border-bottom:0px #666 solid; 
+ border-radius: 0 50px 60px 0;
+ height:20px;
+ background: url(menu_assets/color.png);
+ text-align:center;
+ line-height:20px;
+ vertical-align:central;
+ 
+
+
+ }
+
+#menubv li:hover	
+{
+background:url(menu_assets/nav-bg.png);
+
+}
+
+#menubv a{
+ text-decoration:none; 
+ color:white;
+  display:block;
+  }
+
+#menubv a:hover{
+	 color:#FFF;
+	  }
+
+
+
+/* Menu CSS 2*/ 
+
+#cssmenu, #cssmenu ul, #cssmenu ul li, #cssmenu ul li a{
+	
+	padding:0;
+	margin:0;
+	line-height: 1;
+	font-family: 'Capriola', sans-serif;
+	
+}
+
+#cssmenu:before, #cssmenu:after, #cssmenu > ul:before, #cssmenu > ul:after {
+
+	content: '';
+	display: table;
+	
+}
+
+
+#cssmenu:after, #cssmenu > ul:after {
+
+	clear: both;
+	
+}
+
+#cssmenu {
+
+	height: 65px;
+	width:900px;
+	
+	
+}
+
+#cssmenu ul{
+
+	background: url(menu_assets/nav-bg.png) repeat-x 0px 3px;
+	height: 150px;
+	
+}
+
+#cssmenu ul li{
+
+	float: left;
+	list-style: none;
+	
+}
+
+#cssmenu ul li a{
+	
+	display: block;
+	height: 37px;
+	padding: 22px 30px 0;
+	margin: 4px 2px 0;
+	border-radius: 2px 2px 0 0;
+	text-decoration: none;
+	font-size: 15px;
+	color: white;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, .75);
+	font-weight: 400;
+	opacity: 0.9;
+	
+}
+
+#cssmenu ul li:first-child a{
+	
+	margin: 4px 2px 0 0;
+	
+}
+
+#cssmenu ul li a:hover, #cssmenu ul li.active a{
+	
+	background: url(menu_assets/color.png)   center bottom;
+	display: block;
+	height: 37px;
+	margin-top: 0px;
+	padding-top: 28px;
+	color: #9b4106;
+	text-shadow: 0 1px 1px rgba(255, 255, 255, .35);
+	opacity: 1;
+	
+}
+
+#login {
+ 
+ height:170px;
+ width:300px;
+ margin:auto;
+ margin-top:100px;
+ 	
+}
+
+form {
+	
+	background-image:url(menu_assets/color.png) ;
+	
+}

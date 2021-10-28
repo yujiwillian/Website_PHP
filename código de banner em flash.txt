@@ -1,0 +1,6 @@
+﻿<!--Colocando um arquivo em flash-->
+<object width="900" height="263" loop="no">
+<param name="movie" value="betacityflashbanner.swf">
+<embed src="betacityflashbanner.swf" width="900" height="263" loop="no">
+</embed>
+</object>

@@ -1,0 +1,430 @@
+﻿-- phpMyAdmin SQL Dump
+-- version 2.11.7
+-- http://www.phpmyadmin.net
+--
+-- Servidor: localhost
+-- Tempo de Geração: Nov 18, 2013 as 02:39 AM
+-- Versão do Servidor: 5.0.51
+-- Versão do PHP: 5.2.6
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+--
+-- Banco de Dados: `betacity`
+--
+CREATE DATABASE `betacity` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `betacity`;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tb_adm`
+--
+
+CREATE TABLE IF NOT EXISTS `tb_adm` (
+  `Cod_func` int(11) NOT NULL auto_increment,
+  `sen_func` varchar(80) NOT NULL,
+  `us_func` varchar(80) NOT NULL,
+  PRIMARY KEY  (`Cod_func`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+
+--
+-- Extraindo dados da tabela `tb_adm`
+--
+
+INSERT INTO `tb_adm` (`Cod_func`, `sen_func`, `us_func`) VALUES
+(1, '123', 'Bruna'),
+(2, '234', 'Carol'),
+(3, '345', 'Giovanna'),
+(4, '456', 'Karina'),
+(5, '567', 'Lourival'),
+(6, '678', 'Matt'),
+(7, '789', 'Y');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tb_carrinho`
+--
+
+CREATE TABLE IF NOT EXISTS `tb_carrinho` (
+  `cod_carrinho` int(11) NOT NULL auto_increment,
+  `cod_produto` int(11) NOT NULL,
+  `cod_cliente` int(11) NOT NULL,
+  `quant_carrinho` int(11) NOT NULL,
+  `descricao_carrinho` text NOT NULL,
+  `preco_carrinho` decimal(9,2) NOT NULL,
+  PRIMARY KEY  (`cod_carrinho`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=37 ;
+
+--
+-- Extraindo dados da tabela `tb_carrinho`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tb_cartao`
+--
+
+CREATE TABLE IF NOT EXISTS `tb_cartao` (
+  `tipo_cartao` varchar(80) NOT NULL default '',
+  `nome_cartao` varchar(80) default NULL,
+  `numero_cartao` varchar(80) default NULL,
+  `codigo_cartao` varchar(80) default NULL,
+  `cod_cliente` int(11) NOT NULL,
+  PRIMARY KEY  (`tipo_cartao`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `tb_cartao`
+--
+
+INSERT INTO `tb_cartao` (`tipo_cartao`, `nome_cartao`, `numero_cartao`, `codigo_cartao`, `cod_cliente`) VALUES
+('3454345', '654', '567567', '6546456', 6);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tb_categoria`
+--
+
+CREATE TABLE IF NOT EXISTS `tb_categoria` (
+  `cod_categoria` int(11) NOT NULL auto_increment,
+  `nome_categoria` varchar(80) NOT NULL,
+  PRIMARY KEY  (`cod_categoria`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Extraindo dados da tabela `tb_categoria`
+--
+
+INSERT INTO `tb_categoria` (`cod_categoria`, `nome_categoria`) VALUES
+(1, 'Música'),
+(2, 'Livro'),
+(3, 'Filme'),
+(4, 'Jogo');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tb_cliente`
+--
+
+CREATE TABLE IF NOT EXISTS `tb_cliente` (
+  `cod_cliente` int(11) NOT NULL auto_increment,
+  `nome_cliente` varchar(80) NOT NULL,
+  `usuario_cliente` varchar(80) NOT NULL,
+  `senha_cliente` varchar(80) NOT NULL,
+  `email_cliente` varchar(80) NOT NULL,
+  `cpf_cliente` char(14) NOT NULL,
+  `rg_cliente` char(13) NOT NULL,
+  `telefone_cliente` char(13) NOT NULL,
+  `celular_cliente` char(14) default NULL,
+  `endereco_cliente` varchar(80) NOT NULL,
+  `endereco2_cliente` varchar(80) default NULL,
+  `cidade_cliente` varchar(80) NOT NULL,
+  `cidade2_cliente` varchar(80) default NULL,
+  `cep2_cliente` char(9) default NULL,
+  `complemento2_cliente` varchar(80) default NULL,
+  `estado_cliente` varchar(80) NOT NULL,
+  `cep_cliente` char(9) NOT NULL,
+  `complemento_cliente` varchar(80) default NULL,
+  `telefone2_cliente` char(13) default NULL,
+  `uf_frete` char(2) NOT NULL,
+  PRIMARY KEY  (`cod_cliente`),
+  UNIQUE KEY `usuario_cliente` (`usuario_cliente`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+
+--
+-- Extraindo dados da tabela `tb_cliente`
+--
+
+INSERT INTO `tb_cliente` (`cod_cliente`, `nome_cliente`, `usuario_cliente`, `senha_cliente`, `email_cliente`, `cpf_cliente`, `rg_cliente`, `telefone_cliente`, `celular_cliente`, `endereco_cliente`, `endereco2_cliente`, `cidade_cliente`, `cidade2_cliente`, `cep2_cliente`, `complemento2_cliente`, `estado_cliente`, `cep_cliente`, `complemento_cliente`, `telefone2_cliente`, `uf_frete`) VALUES
+(6, 'Jo', 'lol', '123', 'wow@uol.com', '123.456.789-12', '12.345.667-A', '1145673456', '', 'Rua', 'fsaddf', 'SÃ£o', 'asdd', 'afsdf', 'saf', 'SP', '12345-129', '12345-129', 'afsaf', 'sp'),
+(9, 'asas', 'asas', '789', 'sda', '12', '24', '24234', '434', 'scsc', 'fsaddf', 'fdf', 'asdd', 'afsdf', 'saf', 'sdsa', '3434', 'scsac', 'afsaf', 'sp'),
+(8, 'dfds', 'ma', '456', 'a', 'dfgsd', 'sdgf', 'dsg', 'gdsdg', 'gdsdg', 'fsaddf', 'dsgsd', 'asdd', 'afsdf', 'saf', 'gdsg', 'dsg', 'dsg', 'afsaf', 'sp'),
+(10, '', '', 'q', '', '', '', '', '', '', 'fsaddf', '', 'asdd', 'afsdf', 'saf', '', '', '', 'afsaf', 'sp'),
+(11, '', 'sd', '', '', '', '', '', '', '', 'fsaddf', '', 'asdd', 'afsdf', 'saf', '', '', '', 'afsaf', 'sp'),
+(12, '', 'a', '', '', '', '', '', '', '', 'fsaddf', '', 'asdd', 'afsdf', 'saf', '', '', '', 'afsaf', 'sp');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tb_comentario`
+--
+
+CREATE TABLE IF NOT EXISTS `tb_comentario` (
+  `cod_comentario` int(11) NOT NULL auto_increment,
+  `cod_produto` int(11) NOT NULL,
+  `usuario_cliente` varchar(80) NOT NULL,
+  `comentario` text NOT NULL,
+  PRIMARY KEY  (`cod_comentario`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Extraindo dados da tabela `tb_comentario`
+--
+
+INSERT INTO `tb_comentario` (`cod_comentario`, `cod_produto`, `usuario_cliente`, `comentario`) VALUES
+(2, 1, 'Jo', 'safsdf');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tb_fornecedor`
+--
+
+CREATE TABLE IF NOT EXISTS `tb_fornecedor` (
+  `cod_fornecedor` int(11) NOT NULL auto_increment,
+  `nome_fornecedor` varchar(80) NOT NULL,
+  `cnpj_fornecedor` char(18) NOT NULL,
+  `endereco_fornecedor` varchar(80) NOT NULL,
+  PRIMARY KEY  (`cod_fornecedor`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Extraindo dados da tabela `tb_fornecedor`
+--
+
+INSERT INTO `tb_fornecedor` (`cod_fornecedor`, `nome_fornecedor`, `cnpj_fornecedor`, `endereco_fornecedor`) VALUES
+(1, 'Joshua Swarg', '12.345.678/1234-12', 'Rua Laranjeiras, 208'),
+(2, 'Madalena Scholz', '56.346.479/6534-57', 'Rua Figueiras, 304'),
+(3, 'Roshi Nork', '93.569.379/8526-68', 'Rua Brasil, 91'),
+(4, 'Camis Birk', '63.735.295/1847-28', 'Rua Braz, 658');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tb_frete`
+--
+
+CREATE TABLE IF NOT EXISTS `tb_frete` (
+  `uf_frete` char(2) NOT NULL,
+  `valor_frete` decimal(9,2) NOT NULL,
+  PRIMARY KEY  (`uf_frete`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `tb_frete`
+--
+
+INSERT INTO `tb_frete` (`uf_frete`, `valor_frete`) VALUES
+('AC', '6.10'),
+('AL', '5.20'),
+('AP', '5.80'),
+('AM', '6.00'),
+('BA', '5.70'),
+('CE', '4.30'),
+('DF', '5.00'),
+('ES', '4.70'),
+('GO', '5.10'),
+('MA', '4.60'),
+('MT', '4.00'),
+('MS', '3.40'),
+('MG', '3.20'),
+('PA', '5.30'),
+('PB', '5.20'),
+('PR', '4.60'),
+('PE', '4.90'),
+('PI', '3.70'),
+('RJ', '3.10'),
+('RN', '4.20'),
+('RS', '4.30'),
+('RO', '4.10'),
+('RR', '4.50'),
+('SC', '3.20'),
+('SP', '2.40'),
+('SE', '6.40'),
+('TO', '7.40');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tb_item`
+--
+
+CREATE TABLE IF NOT EXISTS `tb_item` (
+  `cod_produto` int(11) NOT NULL,
+  `quant_item` int(11) NOT NULL,
+  `preco_item` decimal(9,2) NOT NULL,
+  `descricao_item` text NOT NULL,
+  `cod_cliente` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `tb_item`
+--
+
+INSERT INTO `tb_item` (`cod_produto`, `quant_item`, `preco_item`, `descricao_item`, `cod_cliente`) VALUES
+(1, 20, '704.00', 'CHILDREN', 8),
+(1, 20, '704.00', 'CHILDREN', 8),
+(1, 20, '704.00', 'CHILDREN', 8),
+(1, 20, '704.00', 'CHILDREN', 8),
+(1, 20, '704.00', 'CHILDREN', 8),
+(1, 20, '704.00', 'CHILDREN', 8),
+(1, 1, '35.20', 'CHILDREN', 6),
+(1, 1, '35.20', 'CHILDREN', 6),
+(1, 1, '35.20', 'CHILDREN', 6),
+(1, 1, '35.20', 'CHILDREN', 6),
+(1, 1, '35.20', 'CHILDREN', 6);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tb_pgto`
+--
+
+CREATE TABLE IF NOT EXISTS `tb_pgto` (
+  `cod_pagamento` int(11) NOT NULL auto_increment,
+  `forma_pagamento` varchar(80) NOT NULL,
+  PRIMARY KEY  (`cod_pagamento`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Extraindo dados da tabela `tb_pgto`
+--
+
+INSERT INTO `tb_pgto` (`cod_pagamento`, `forma_pagamento`) VALUES
+(1, 'Boleto'),
+(2, 'Cartão');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tb_produto`
+--
+
+CREATE TABLE IF NOT EXISTS `tb_produto` (
+  `cod_produto` int(11) NOT NULL auto_increment,
+  `nome_produto` varchar(80) NOT NULL,
+  `foto_produto` varchar(80) NOT NULL,
+  `criador_produto` varchar(80) NOT NULL,
+  `desenvolvedor_produto` varchar(80) NOT NULL,
+  `ano_produto` varchar(80) NOT NULL,
+  `unidade_medida_produto` varchar(80) NOT NULL,
+  `descricao_produto` text NOT NULL,
+  `preco_produto` decimal(6,2) NOT NULL,
+  `estoque_produto` int(11) NOT NULL,
+  `cod_categoria` int(11) NOT NULL,
+  `cod_func` int(11) NOT NULL,
+  `cod_fornecedor` int(11) NOT NULL,
+  `genero_produto` varchar(80) NOT NULL,
+  PRIMARY KEY  (`cod_produto`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=41 ;
+
+--
+-- Extraindo dados da tabela `tb_produto`
+--
+
+INSERT INTO `tb_produto` (`cod_produto`, `nome_produto`, `foto_produto`, `criador_produto`, `desenvolvedor_produto`, `ano_produto`, `unidade_medida_produto`, `descricao_produto`, `preco_produto`, `estoque_produto`, `cod_categoria`, `cod_func`, `cod_fornecedor`, `genero_produto`) VALUES
+(1, 'CHILDREN OF BODOM - Halo of Blood ', 'cob.jpg', 'CHILDREN OF BODOM', 'Nuclear Blast', '2013', '12x12', 'Faixas \r\n1.	"Waste of Skin"  	4:16\r\n2.	"Halo of Blood"  	3:12\r\n3.	"Scream for Silence"  	4:09\r\n4.	"Transference"  	3:58\r\n5.	"Bodom Blue Moon (The Second Coming)"  	4:14\r\n6.	"Your Days Are Numbered"  	3:40\r\n7.	"Dead Man’s Hand on You"  	4:58\r\n8.	"Damaged Beyond Repair"  	4:20\r\n9.	"All Twisted"  	4:51\r\n10.	"One Bottle and a Knee De"  	4:02 \r\n', '35.20', 48, 1, 7, 1, 'Thrash Metal/Death Metal Melódico '),
+(2, 'ARTIC MONKEYS – Favourite Worst Nightmare ', 'articfwn.jpg', 'ARTIC MONKEYS ', 'Domino/Warner Bros/EMI', '2007', '12x12', 'Faixas \r\n1.	"Brianstorm” 	2:50\r\n2.	"Teddy Picker” 	2:43\r\n3.	"D Is for Dangerous"  	2:16\r\n4.	"Balaclava"  	2:49\r\n5.	"Fluorescent Adolescent” 	2:57\r\n6.	"Only Ones Who Know"  	3:02\r\n7.	"Do Me a Favour"  	3:27\r\n8.	"This House Is a Circus"  	3:09\r\n9.	"If You Were There, Beware"  	4:34\r\n10.	"The Bad Thing" 	2:23\r\n11.	"Old Yellow Bricks" 	3:11\r\n12.	"505"  	4:13\r\n', '25.30', 265, 1, 7, 1, 'Indie Rock/Garage Rock/Psychedelic Rock'),
+(3, 'CHRISTINA AGUILERA – Back To Basics ', 'ca.jpg', 'CHRISTINA AGUILERA', 'RCA', '2006', '12x12', 'Faixas\r\n1.	"Intro (Back to Basics)"  	1:47\r\n2.	"Makes Me Wanna Pray"	4:10\r\n3.	"Back in the Day"  	4:13\r\n4.	"Ain''t No Other Man”	3:49\r\n5.	"Understand"  	3:46\r\n6.	"Slow Down Baby”  	3:29\r\n7.	"Oh Mother”  	3:47\r\n8.	"F.U.S.S."  	2:21\r\n9.	"On Our Way"  	3:37\r\n10.	"Without You"  	3:57\r\n11.	"Still Dirrty"  	3:46\r\n12.	"Here to Stay"  	3:20\r\n13.	"Thank You “  	4:59\r\n', '30.50', 30, 1, 7, 1, 'Pop/R&B'),
+(4, 'BREAKING BENJAMIN – Phobia ', 'bb.jpg', 'BREAKING BENJAMIN', 'Hollywood', '2006', '12x12', 'Faixas\r\n1.	"Intro"  	1:13\r\n2.	"The Diary of Jane”	3:20\r\n3.	"Breath"  	3:38\r\n4.	"You"  	3:21\r\n5.	"Evil Angel"  	3:41\r\n6.	"Until the End”  	4:12\r\n7.	"Dance with the Devil"  	3:47\r\n8.	"Topless"  	3:03\r\n9.	"Here We Are"  	4:18\r\n10.	"Unknown Soldier"  	3:46\r\n11.	"Had Enough"  	3:50\r\n12.	"You Fight Me"  	3:12\r\n', '31.23', 30, 1, 7, 1, 'Metal Alternativo/Post-Grunge '),
+(5, 'EVANESCENCE – Evanescence', 'ev.jpg', 'EVANESCENCE', 'Wind-up', '2011', '12x12', 'Faixas:\r\n1.	"What You Want”	3:41\r\n2.	"Made of Stone"  	3:32\r\n3.	"The Change"  	3:42\r\n4.	"My Heart Is Broken”	4:29\r\n5.	"The Other Side"  	4:05\r\n6.	"Erase This"  	3:55\r\n7.	"Lost in Paradise” 	4:42\r\n8.	"Sick"  	3:30\r\n9.	"End of the Dream"  	3:49\r\n10.	"Oceans”	3:38\r\n11.	"Never Go Back"  	4:27\r\n12.	"Swimming Home"       3:43\r\n', '45.60', 16, 1, 7, 1, 'Metal Alternativo/Nu Metal/Hard Rock'),
+(6, 'TAYLOR SWIFT – Fearless ', 'ts.jpg', 'TAYLOR SWIFT', 'Big Machine', '2008', '12x12', 'Faixas\r\n1.	"Fearless”  	4:01\r\n2.	"Fifteen”	4:54\r\n3.	"Love Story”  	3:57\r\n4.	"Hey Stephen” 	4:12\r\n5.	"White Horse”	3:55\r\n6.	"You Belong with Me”  	3:51\r\n7.	"Breathe”	4:23\r\n8.	"Tell Me Why"  	3:20\r\n9.	"You''re Not Sorry"  	4:22\r\n10.	"The Way I Loved You"  	4:07\r\n11.	"Forever & Always"  	3:46\r\n12.	"The Best Day"  	4:07\r\n13.	"Change"  	4:39\r\n', '23.50', 50, 1, 7, 1, 'Country Pop/Pop Rock'),
+(7, 'THE KILLERS – Battle Born ', 'tk.jpg', 'THE KILLERS', 'Island, Vertigo', '2012', '12x12', 'Faixas \r\n1.	"Flesh and Bone"  	4:01\r\n2.	"Runaways”	4:04\r\n3.	"The Way It Was"  	3:51\r\n4.	"Here with Me” 	4:52\r\n5.	"A Matter of Time"  	4:11\r\n6.	"Deadlines and Commitments"  	4:22\r\n7.	"Miss Atomic Bomb”	4:53\r\n8.	"The Rising Tide"  	4:17\r\n9.	"Heart of a Girl"  	4:34\r\n10.	"From Here on Out"  	2:27\r\n11.	"Be Still"  	4:33\r\n12.	"Battle Born"  	5:13\r\n', '45.50', 23, 1, 7, 1, 'Rock Alternativo/New Wave/Heartland Rock'),
+(8, 'WITHIN TEMPTATION – Heart of Everything ', 'wt.jpg', 'WITHIN TEMPTATION ', 'Sony BMG/GUN', '2007', '12x12', 'Faixas\r\n1.	"The Howling”	5:36\r\n2.	"What Have You Done”	5:13\r\n3.	"Frozen”	4:28\r\n4.	"Our Solemn Hour"  	4:17\r\n5.	"The Heart of Everything"  	5:35\r\n6.	"Hand of Sorrow” 	5:36\r\n7.	"The Cross"  	4:52\r\n8.	"Final Destination"  	4:45\r\n9.	"All I Need” 	4:52\r\n10.	"The Truth Beneath the Rose"  	7:05\r\n11.	"Forgiven” 	4:54\r\n', '34.50', 60, 1, 7, 1, 'Metal Sinfônico'),
+(9, 'METALLICA – Master of Puppets ', 'me.jpg', 'METALLICA', 'Elektra/Asylum ', '1986', '12x12', 'Faixas\r\n1.	"Battery"  	5:12\r\n2.	"Master of Puppets”  	8:36\r\n3.	"The Thing That Should Not Be"  	6:37\r\n4.	"Welcome Home (Sanitarium)"  	6:27\r\n5.	"Disposable Heroes"  	8:17\r\n6.	"Leper Messiah"  	5:40\r\n7.	"Orion" (instrumental)	8:28\r\n8.	"Damage, Inc."  	5:29\r\n', '35.30', 50, 1, 7, 1, 'Heavy Metal/Thrash Metal'),
+(10, 'THE BIRTHDAY MASSACRE – Pins and Needles', 'tba.jpg', 'THE BIRTHDAY MASSACRE', 'Metropolis Records ', '2010', '12x12', 'Faixas\r\n1.	"In the Dark"  	3:42\r\n2.	"Always"  	4:11\r\n3.	"Pale"  	3:58\r\n4.	"Control"  	3:20\r\n5.	"Shallow Grave"  	3:47\r\n6.	"Sideways"  	3:25\r\n7.	"Midnight"  	3:43\r\n8.	"Pins and Needles"  	4:19\r\n9.	"Two Hearts"  	3:20\r\n10.	"Sleepwalking"  	3:49\r\n11.	"Secret"  	4:23\r\n', '27.40', 35, 1, 7, 1, 'Synthrock/Rock Eletrônico/New Wave'),
+(11, 'A PASSAGEM', 'pas.jpg', 'JUSTIN CRONIN', 'Sextante', '2010', '12x18', 'Primeiro, o imprevisível: a quebra de segurança em uma instalação secreta do governo norte-americano põe à solta um grupo de condenados à morte usados em um experimento militar. Infectados com um vírus modificado em laboratório que lhes dá incrível força, extraordinária capacidade de regeneração e hipersensibilidade à luz, tiveram os últimos traços de humanidade substituídos por um comportamento animalesco e uma insaciável sede de sangue. \r\n\r\nDepois, o inimaginável: ao escurecer, o caos e a carnificina se instalam, e o nascer do dia seguinte revela um país - talvez um planeta - que nunca mais será o mesmo. A cada noite, a população humana se reduz e cresce o número de pessoas contaminadas pelo vírus assustador. Tudo o que resta aos poucos sobreviventes é uma longa luta em uma paisagem marcada pelo medo da escuridão, da morte e de algo ainda pior. \r\n\r\nEnquanto a humanidade se torna presa do predador criado por ela mesma, o agente Brad Wolgast, do FBI, tenta proteger Amy, uma órfã de 6 anos e a única criança usada no malfadado experimento que deu início ao apocalipse. Mas, para Amy, esse é apenas o começo de uma longa jornada - através de décadas e milhares de quilômetros - até o lugar e o tempo em que deverá pôr fim ao que jamais deveria ter começado. A Passagem um suspense implacável, uma alegoria da luta humana diante de uma catástrofe sem precedentes. Da destruição da sociedade que conhecemos aos esforços de reconstruí-la na nova ordem que se instaura, do confronto entre o bem e o mal ao questionamento interno de cada personagem. Pessoas comuns são levadas a feitos extraordinários, enfrentando seus maiores medos em um mundo que recende a morte.\r\n\r\nPáginas: 816                        \r\n', '49.99', 100, 2, 2, 2, 'Literatura Estrangeira'),
+(12, 'OS DOZE', 'doze.jpg', 'JUSTIN CRONIN', 'Arqueiro    ', '2013', '12x18', 'Segundo livro da trilogia A Passagem, Os Doze nos faz questionar a mente humana, os avanços científicos e a busca do poder que leva a uma certeza sombria de nossa capacidade para o mal. Mas, acima de tudo, ele reforça nossa esperança em uma humanidade que se adapta, sobrevive e não se rende. \r\n\r\n\r\nEm A passagem, 12 prisioneiros sentenciados à morte foram usados em um experimento militar que buscava criar o soldado invencível. Mas, a experiência deu terrivelmente errado. Um vírus inoculado nas cobaias acabou com qualquer resquício de sua humanidade e elas fugiram, matando ou infectando qualquer um que cruzasse seu caminho. Os infectados se tornavam virais obedientes a seu criador, mais um de seus Muitos. \r\n\r\nNo caos que se formou, a única chance de sobrevivência para a espécie humana eram fortificações altamente protegidas. Assim se formou a Primeira Colônia, um reduto a salvo dos virais, mas isolado do resto do mundo. \r\n\r\n92 anos depois, uma andarilha surgiu às portas da Colônia. \r\nEra Amy Harper Bellafonte, a Garota de Lugar Nenhum, aquela que iria liderar um grupo de colonos e eliminar a cobaia número 1, Gilles Babcock, libertando seus Muitos. \r\n\r\nAgora, 5 anos após ter cruzado as Terras Escuras em busca de respostas e salvação, seu grupo está separado. Cada um seguiu seu caminho, mas seus destinos logo voltarão a se cruzar, num embate definitivo contra uma ameaça mortal. Fanning, o Zero, aquele que deu origem ao apocalipse, tem planos para refazer o grupo dos Doze e conta com um aliado poderoso, disposto a qualquer coisa em nome da própria imortalidade. \r\n\r\nPáginas: 592\r\nColeção: Trilogia – A Passagem                  \r\n', '49.99', 50, 2, 2, 2, 'Literatura Estrangeira'),
+(13, 'CLUBE DA LUTA', 'club.jpg', 'CHUCK PALAHNIUK', 'LeYa  ', '2012', '12x18', 'Considerado um clássico moderno desde sua publicação em 1996, o livro Clube da Luta consagrou Chuck Palahniuk como um dos mais importantes e criativos autores contemporâneos, além do próprio livro como um cânone da cultura pop. O livro que estava esgotado há anos volta às livrarias nessa caprichada edição. O clube da luta é idealizado por Tyler Durden, que acha que encontrou uma maneira de viver fora dos limites da sociedade e das regras sem sentido. Mas o que está por vir de sua mente pode piorar muito daqui para frente. O livro foi filmado em 1999, pelo vencedor do Oscar de melhor diretor, David Fincher (OsHomens Que Não Amavam as Mulheres, A Rede Social), que conseguiu adaptar toda atmosfera do livro, o mundo caótico do personagem e o humor negro de Palahniuk em uma trama recebida com inúmeros elogios pela crítica e pelo público que conta com os atores Brad Pitt, Edward Norton e Helena Bonham Carter.\r\n\r\nPáginas: 272', '39.99', 40, 2, 2, 2, 'Literatura Estrangeira-Romances '),
+(14, 'A CULPA É DAS ESTRELAS', 'estrela.jpg', 'JOHN GREEN', 'Intrínseca', '2012', '12x18', 'Hazel é uma paciente terminal. Ainda que, por um milagre da medicina, seu tumor tenha encolhido bastante — o que lhe dá a promessa de viver mais alguns anos —, o último capítulo de sua história foi escrito no momento do diagnóstico. Mas em todo bom enredo há uma reviravolta, e a de Hazel se chama Augustus Waters, um garoto bonito que certo dia aparece no Grupo de Apoio a Crianças com Câncer. Juntos, os dois vão preencher o pequeno infinito das páginas em branco de suas vidas.\r\n\r\nPáginas: 288', '29.99', 50, 2, 2, 2, 'Drama'),
+(15, 'CHRISTINE', 'chr.jpg', 'STEPHEN KING', 'Objetiva', '2011', '12x18', 'Arnie Cunnigham era um perdedor. Rosto coberto de espinhas, desajeitado com as garotas, magro demais, passava os dias pelos corredores da escola, tentando fugir da gozação dos colegas. Isso até Christine - personagem que dá nome ao livro, entrar em sua vida. Amor à primeira vista. A partir desse dia, o mundo ganha novo sentido. Tudo o que Arnie quer é estar junto de Christine. \r\n\r\nMas não se espere um novo Romeu e Julieta, tratando-se da mente assombrosa de Stephen King. Christine é um carro. Um Plymouth Fury 1958. Um feitiço sobre rodas que se apodera de Arnie e faz dele alguém diferente. Há algo poderosamente maligno solto pelas estradas de Libertyville. Uma força sobrenatural que vai deixando seu rastro de sangue por onde passa. \r\n\r\nPáginas: 400', '57.99', 70, 2, 2, 2, 'Terror/Suspense'),
+(16, 'STARTERS', 'star.jpg', 'LISSA PRICE', 'Novo Conceito ', '2012', '12x18', 'Callie perdeu os pais quando as guerras de Esporos varreu todas as pessoas entre 20 e 60 anos. Ela e seu irmão mais novo, Tyler, estão se virando, vivendo como desabrigados com seu amigo Michael e lutando contra rebeldes que os matariam por uma bolacha. \r\n\r\nA única esperança de Callie é Prime Destinations, um lugar perturbado em Berverly Hills que abriga uma misteriosa figura conhecida como o Old Man. Ele aluga adolescentes para alugar seus corpos aos Terminais - idosos que desejam ser jovens novamente. Callie, desesperada pelo dinheiro que os ajudará a sobreviver concorda em ser uma doadora. Mas o neurochip que colocam em Callie está com defeito e ela acorda na vida de sua locadora, morando em uma mansão, dirigindo seus carros e saindo com o neto de um senador. \r\n\r\nParece quase um conto de fadas, até Callie descobrir que sua locatária pretende fazer mais do que se divertir - e que os planos de Prime Destinations são tão diabólicos que Callie nunca podia ter imaginado.\r\n\r\nPáginas: 368', '28.99', 65, 2, 1, 2, 'Ficção Científica/Distopia '),
+(17, 'INFERNO', 'inferno.jpg', 'DAN BROWN', 'Arqueiro', '2013', '12x18', 'Neste novo e fascinante thriller Dan Brown retoma a mistura magistral de história, arte, códigos e símbolos que o consagrou em O código Da Vinci, Anjos e demônios e O símbolo perdido e faz de Inferno sua aposta mais alta até o momento.\r\nNo coração da Itália, Robert Langdon, o professor de Simbologia de Harvard, é arrastado para um mundo angustiante centrado em uma das obras literárias mais duradouras e misteriosas da história: O Inferno, de Dante Alighieri.\r\nNuma corrida contra o tempo, Langdon luta contra um adversário assustador e enfrenta um enigma engenhoso que o arrasta para uma clássica paisagem de arte, passagens secretas e ciência futurística. Tendo como pano de fundo o sombrio poema de Dante, Langdon mergulha numa caçada frenética para encontrar respostas e decidir em quem confiar, antes que o mundo que conhecemos seja destruído.\r\n\r\nPáginas:  448', '29.99', 37, 2, 1, 2, 'Literatura Estrangeira '),
+(18, 'JOGOS VORAZES', 'jogos.jpg', 'SUZANNE COLLINS', 'Rocco', '2010', '12x18', 'Mistura de ficção científica com mitologia e reality show, Jogos Vorazes é o mais novo fenômeno da literatura jovem, precursor de tendência no milionário mercado de Best-sellers juvenis: a dos romances ambientados num futuro pós-apocalíptico. Há mais de 85 semanas na lista de mais vendidos do The New York Times e de outras publicações de prestígio dos EUA, e elogiado por Rick Riordan, da série "Percy Jackson", e Stephenie Meyer, da saga "Crepúsculo", o livro, primeiro volume de uma trilogia, rendeu à autora Suzanne Collins lugar na balada lista de 100 personalidades mais influentes do ano da revista Time.\r\n\r\nAmbientado num futuro sombrio, o livro narra uma luta mortal pela sobrevivência encenada por crianças e transmitida ao vivo para todos os habitantes de uma nação construída nas ruínas de um lugar anteriormente conhecido como Estados Unidos. Com este mote surpreendente e uma narrativa ágil, Jogos Vorazes já foi traduzido para mais de 30 idiomas e vem se tornando um crossover, atraindo leitores de diversas faixas etárias. \r\n\r\nPáginas: 400', '29.50', 40, 2, 1, 2, 'Infanto-Juvenil  '),
+(19, 'DEZESSEIS LUAS', 'luas.jpg', 'MARGARET STOHL/KEMI GARCIA', 'Galera Record ', '2010', '12x18', 'Ethan é um garoto normal de uma pequena cidade do sul dos Estados Unidos e totalmente atormentado por sonhos, ou melhor, pesadelos com uma garota que ele nunca conheceu. Até que ela aparece...  Lena Duchannes é uma adolescente que luta para esconder seus poderes e uma maldição que assombra sua família há gerações. Mais que um romance entre eles, há um segredo decisivo que pode vir à tona.\r\n\r\nPáginas: 490\r\nColeção: Beautiful Creatures ', '39.99', 50, 2, 1, 2, 'Infanto-Juvenil  '),
+(20, 'THE WALKING DEAD', 'twd.jpg', 'ROBERT KIRKMAN/JAY BONASINGA', 'Galera Record ', '2012', '12x18', 'No universo de The Walking Dead não existe vilão maior do que o Governador, o déspota que comanda a cidade de Woodbury. Ele é o personagem mais controvertido em um mundo dominado por mortos-vivos. Neste romance os fãs descobrirão como ele se tornou esse homem e qual a origem de suas atitudes extremas. Para isso, é preciso conhecer a história de Phillip Blake, sua filha Penny e seu irmão Brian que, com outros dois amigos, irão cruzar cidades desoladas pelo apocalipse zumbi em busca da salvação. \r\n\r\nOriginalmente, The Walking Dead é uma série de quadrinhos publicada desde 2003 e vencedora do Eisner Award. Em 2010, os quadrinhos foram adaptados para o seriado homônimo The Walking Dead e, já bateu diversos recordes de audiência nos Estados Unidos. A série foi finalista em várias categorias no 68º Golden Globe Awards, incluindo Melhor Série Dramática de TV. \r\n\r\nColeção: The Walking Dead \r\nPáginas: 364', '25.90', 40, 2, 1, 2, 'Literatura Estrangeira/Terror/Suspense  '),
+(21, 'THE LAST OF US - PLAYSTATION 3', 'tlou.jpg', 'SAMUEL THOMPSON', 'Naughty Dog', '2013', '12x20', 'Sinopse: \r\nO titulo The Last of Us é uma experiência que promete redefinir o gênero com uma mistura de sobrevivência e ação, contando uma história centrada nos personagens, sobre uma praga moderna que dizima a espécie humana há 20 anos atrás. A natureza invade a civilização, forçando os poucos sobreviventes a lutar por comida, armas e o que mais puderem encontrar.\r\nJoel, um sobrevivente durão, e Ellie, uma jovem corajosa e bem mais esperta do que aparenta sua idade, precisam trabalhar juntos para sobreviver nesta jornada pelo que sobrou dos Estados Unidos.\r\n\r\nRecursos do Jogo: 1 jogador\r\nIdioma: Português', '150.00', 53, 4, 3, 4, 'Ação/Sobrevivência'),
+(22, 'DIABLO III - XBOX 360', 'diablo3.jpg', 'RUSSELL BROWER/DEREK DUKE/GLENN STAFFORD', 'Blizzard Entertainment', '2013', '12x20', 'Sinopse: \r\nDiablo III dá continuidade à narrativa épica de Diablo, com jogadores assumindo o papel de cinco personagens heroicos: bárbaro, feiticeiro, arcanista, monge ou caçador de demônios e embarcando em uma jornada perigosa para salvar o mundo de Santuário das forças corrompidas do Inferno Ardente. Conforme os jogadores se aventuram por cenários detalhados e variados, eles participam de combates emocionantes contra hordas de monstros e chefes desafiadores, ganhando experiência e habilidade, adquirindo artefatos de incrível poder e encontrando personagens-chave que os acompanharão nas batalhas ou os ajudarão ao longo do caminho\r\n\r\nConteúdo da Embalagem: 1 Mídia e manual de instruções.\r\n\r\nRecursos do Jogo: Possível jogar online (multiplayer) com até 4 jogadores', '141.40', 53, 4, 3, 4, 'Ação'),
+(23, 'PAYDAY 2 - PLAYSTATION 3', 'pay.jpg', 'SIMON VIKLUND/GUSTAF GREFBERG', '505 Games', '2013', '12x20', 'Sinopse: \r\nDestaque na E3 2013 e nomeado 7 vezes como melhor shooter da feira, Payday 2 leva o jogador e sua equipe de assalto a banco em missões emocionantes, com uma experiência imersiva e trilha sonora incrível. Jogue com 4 personagens diferentes - sozinho ou em modo cooperativo. Sistema de classes - Mastermind, Technician, Enforcer e Ghost. Extensa customização de personagem. Mais de 30 missões de assaltos. Eleito ''Melhor Shooter'' - Destructoid.com - PAYDAY 2 será a continuação do simulador de assaltos que foi lançado em 2011. Cooperativo para até quatro jogadores, o título mantém a quadrilha do jogo original, mas expande a jogabilidade e a complexidade das missões. Há muita variedade nos assaltos, mas também muita customização de personagens, armas e equipamentos. \r\nEm PAYDAY 2, os assaltos não serão tão simples. Desta vez, o jogo inclui uma rede de contatos para organizar os assaltos, a CrimeNet, que oferece informações sobre seus alvos, e permite roubos menores em lojas de conveniência, planejar um sequestro, facilitar crimes na internet ou até ataques simultâneos a bancos. Há até a possibilidade de trocas de favores com políticos ! \r\nA CrimeNet é um grande banco de dados dinâmico, com todos os crimes que podem ser cometidos em um determinado momento. Há dúzias de missões e contatos diferentes, que se tornam disponíveis ao longo do jogo. Há quatro ''profissões'' para escolher e se especializar: planejador, executor, fantasma e técnico, cada um com diferentes habilidades para que o jogador se torne o assaltante virtual definitivo. \r\nAlém do dinheiro de cada crime bem sucedido, o personagem ganha máscaras, modificadores de armas e outros acessórios e equipamentos que vão ajudar as missões seguintes. As armas podem ser adaptadas com lentes telescópicas, silenciadores, miras, pentes e mais, para diferentes situações. Também dá para comprar itens e pessoas para ajudar nos assaltos, como carros de fuga, plantas-baixas e informantes. \r\nEm primeira pessoa, PAYDAY 2 possui vários assaltos divididos em etapas, e o resultado final vai depender do sucesso de cada uma. É preciso escolher os comparsas com as melhores habilidades e equipamentos para cada missão. Além disso, o mesmo assalto não acontece duas vezes da mesma forma, já que há elementos randomizados por toda parte, desde pessoas, até objetos móveis e paredes. Assim, há liberdade para diferentes abordagens em cada roubo.\r\n\r\nConteúdo da Embalagem: Disco, manual e folheto\r\n\r\nRecursos do Jogo: 1-4 jogador\r\n\r\nIdioma: Inglês\r\n', '180.50', 28, 4, 3, 4, 'Ação'),
+(24, 'RESIDENT EVIL: REVELATIONS - XBOX 360', 'rer.jpg', 'MASACHIKA KAWATA/TAKAYUKI HAMA', 'Capcom', '2013', '12x20', 'Sinopse: \r\nO medo que originalmente foi trazido aos jogadores em Resident Evil Revelations para Nintendo 3DS, retorna para consoles, com visual totalmente em HD de alta qualidade, efeitos de luz aprimorados e uma experiência de som imersiva. Esta última versão de Resident Evil Revelations também disponibiliza conteúdo adicional com um terrível inimigo novo, modo de dificuldade extra, integração com o ResidentEvil.net e melhoras no modo Raid. Modo Raid, que foi inicialmente apresentado à séria na versão original do Resident Evil Revelations, contempla a possibilidade de jogar online em modo cooperativo ou solo contra hordas de inimigos em várias missões enquanto aumenta o nível dos personagens e melhora as armas. Novas armas, habilidades e personagens jogáveis, incluindo Hulk, leva a experiência do modo Raid a patamares mais elevados!\r\n\r\nO aclamado título de Survivor Horror volta aos eventos que aconteceram entre Resident Evil 4 e Resident Evil 5, revelando a verdade por trás do vírus T-Abyss. Resident Evil Revelations vem com os favoritos da série Jill Valentine e Chris Redfield, mais seus respectivos parceiros da BSAA - Parker Luciani e Jessica Sherawat. A ação começa a bordo de um navio supostamente abandonado, o ''Queen Zenobia'', onde o horror espreita cada canto, antes dos jogadores chegarem ao continente e a devastada cidade de Terragrigia. Com pouca munição e armas, começa a corrida para sobreviver ao horror de Resident Evil Revelations.\r\nConheça mais uma edição de Resident Evil, um verdadeiro ícone de sua categoria!\r\n\r\nConteúdo da Embalagem: 1 Mídia e manual de instruções\r\n\r\nRecursos do Jogo: 02 Jogadores offline. \r\n\r\nModo Multiplayer: Co-op (2) e solo\r\n\r\nIdiomas: Inglês com Legendas em Português\r\n', '199.99', 89, 4, 3, 4, 'Ação/Aventura'),
+(25, 'STAR TREK - PLAYSTATION 3', 'st.jpg', 'CHAD SEITER', 'Namco Bandai Games', '2013', '12x20', 'Sinopse: \r\nStar Trek é um jogo de ação e aventura para Xbox 360, PlayStation 3 e PC. Nele, os jogadores controlam os personagens Spock e Kirk do filme de Star Trek (conhecido antigamente como Jornada nas Estrelas). \r\nOs jogadores devem desvendar a história e lutar para proteger a galáxia dos homens lagartos Gorn. Para isso, deve-se percorrer cenários como naves e estações espaciais, participando de tiroteios contra essas criaturas e fazendo uso de armas a laser.\r\n\r\nConteúdo da Embalagem: 1 Mídia e manual de instruções\r\n\r\nIdiomas: Inglês', '190.99', 47, 4, 3, 4, 'Ação'),
+(26, 'PRO EVOLUTION SOCCER 2013 - XBOX 360', 'pes.jpg', 'KEI MASUDA', 'Konami', '2012', '12x20', 'Sinopse: \r\nEdição de 2013 da aclamada série de futebol, que retorna às suas raízes, com ênfase nas habilidades individuais dos melhores jogadores do mundo, dando a eles a liberdade total para jogar em todas as partes do campo. São três elementos principais que formam a base de modificações da série: um sistema de controles e física, incluindo controle total de chutes ao gol, passes e cruzamentos; a individualidade dos jogadores, não só em relação à semelhança física, mas também com seus estilos de jogo e celebração ao marcar um gol; e uma diferenciada inteligência artificial através do sistema AI ProActive, que une controle e realismo e muda a maneira como os jogadores se comportam dentro de campo. \r\nA edição também conta com melhor conectividade e atmosfera. O aplicativo myPES vai estender a conectividade e comunicação entre os fãs no Facebook, enquanto os efeitos de áudio dão mais ênfase à ação dentro do campo para se assemelhar aos grandes clássicos, com as torcidas ficando mais empolgadas à medida que suas equipes exercem pressão sobre o adversário.\r\n\r\nRecursos do Jogo: 2 a 8 online\r\n\r\nIdiomas: Português e Espanhol\r\n', '79.90', 30, 4, 4, 4, 'Esportes'),
+(27, 'CALL OF DUTY: BLACK OPS II - PLAYSTATION 3', 'cod.jpg', 'JACK WALL/TRENT REZNOR', 'Activision', '2012', '12x20', 'Sinopse:\r\nA trama do game se passa no século XXI, durante uma suposta Guerra Fria entre os Estados Unidos e a China, no ano de 2025. As poderosas armas de guerra, somadas a um avançado desenvolvimento tecnológico, tornaram o mundo um verdadeiro campo de batalha. Um novo sistema de esquadrões de combate, chamado Strykeforce, com direito a comandos para os soldados.\r\nCall of Duty: Black Ops II traz nesta versão um fascinante game de tiro em primeira pessoa, com aspectos táticos e de clandestinidade, que coloca você no papel de um soldado lutando em várias missões secretas (Black Ops). Criado a partir de informações de soldados reais Black Ops da época, o jogo mistura o estilo tradicional de tiro tático da série com opções de jogabilidade criadas para proporcionar uma experiência maior aos competidores. As características adicionais incluem extensas opções multiplayer, juntamente com incríveis veículos e armas explosivas.\r\n\r\nRecursos do Jogo: 1 Jogador\r\n\r\nIdiomas: Inglês\r\n\r\nConteúdo da Embalagem: 1 Game', '190.00', 47, 4, 4, 4, 'Tiro/Ação'),
+(28, 'GEARS OF WAR 3 - XBOX 360', 'gow.jpg', 'STEVE JABLONSKY', 'Microsoft', '2011', '12x20', 'Sinopse:\r\nO terceiro episódio de uma dos melhores games da categoria é marcado pela volta dos protagonistas, que agora vêm acompanhados de diferentes aliados (com direito a modo cooperativo exclusivo para quatro jogadores), em busca da salvação da raça humana, esta limitada a apenas um navio.\r\nOs tradicionais Locusts agora podem ser eliminados através de uma série de sequências de finalização (uma para cada arma), incluindo rajadas de fogo com lança-chamas e até mesmo cortes na garganta, feitos com a baioneta anexada à metralhadora. \r\nGranadas foram modificadas para causar mais dano e podem inclusive ser "guardadas" na boca dos oponentes. Além do armamento pesado, Gears of War contará com a volta de modalidades mais empolgantes, tanto online quanto offline. O Arcade, por exemplo, traz aos jogadores sistemas de combos que aumentam progressivamente a pontuação, junto com os modificadores de partida que garantem o máximo de diversão. \r\nPor fim, os jogadores encararão a ameaça dos novos invasores, capazes de se adaptar aos tiros, esticando seus corpos e até mesmo destacando suas cabeças para explodirem perto dos personagens humanos. Um mix de ação e aventura, trazendo ainda mais adrenalina e jogabilidade intensa. E você está pronto para o combate no Game Gears of War? \r\n\r\nRecursos do Jogo: 1 a 4 Jogadores\r\n\r\nIdiomas: Audio inglês / Legenda Português\r\n\r\nConteúdo da Embalagem: 1 Game\r\n', '129.00', 49, 4, 4, 4, 'Tiro em 3º Pessoa'),
+(29, 'BATTLEFIELD 3 - PLAYSTATION 3', 'btf.jpg', 'PATRICK BACH', 'Electronic Arts', '2011', '12x20', 'Sinopse: \r\nEm Battlefield 3, os jogadores assumem o papel da elite dos fuzileiros navais dos EUA. Eles vão passar por missões solo em ritmo acelerado e por uma ação competitiva multiplayer em vários locais do mundo. Sustentado pela tecnologia inovadora do Frostbite 2, Battlefield 3 eleva os jogos de tiro em primeira pessoa a um nível totalmente diferenciado.\r\n\r\nRecursos do Jogo: Possibilidade de jogar online (24 jogadores)\r\n\r\nIdiomas: Ingles\r\n\r\nConteúdo da Embalagem: 1 Mídia e manual de instruções\r\n', '139.99', 45, 4, 4, 4, 'Tiro'),
+(30, 'FABLE: THE JOURNEY - XBOX 360', 'fa.jpg', 'GARY CARR', 'Microsoft', '2012', '12x20', 'Sinopse: \r\nControle a Magia\r\nO destino de Albion está em suas mãos! Sua vida nômade e tranquila muda para sempre quando você torna-se, subitamente, o herdeiro de grandes e misteriosos poderes. Descubra o mal que ameaça a terra, enquanto aprende a controlar sua magia e domine o poder que decidirá o futuro de Albion.\r\nO Poder Está em Suas Mãos\r\nUse as mãos para criar e lançar magias de maneiras que você nunca imaginou que fossem possíveis.\r\nHistória Épica. Experiência Inesquecível\r\nJogabilidade profunda e envolvente em toda a jornada para salvar Albion\r\nAmbientes Incríveis\r\nViaje pelo mundo de Albion no mais deslumbrante jogo Fable de todos os tempos.\r\n\r\nRecursos do Jogo: 1 Jogador\r\n\r\nIdiomas: Português\r\n\r\nConteúdo da Embalagem: 1 jogo', '149.99', 85, 4, 4, 4, 'Aventura'),
+(31, 'AMANHECER PARTE 2: O FINAL - DVD', 'am.jpg', 'WYCK GODFREY/KAREN ROSENFELT/STEPHENIE MEYER', 'Paris Filmes', '2012', '19x13x1', 'Sinopse: Após dar a luz a Renesmee (Mackenzie Foy), Bella Swan (Kristen Stewart) desperta já vampira. Ela agora precisa aprender a lidar com seus novos poderes, assim como absorver a ideia de que Jake (Taylor Lautner), seu melhor amigo, teve um imprinting com a filha. Devido ao elo existente entre eles, Jake passa a acompanhar com bastante atenção o rápido desenvolvimento de Renesmee, o que faz com que se aproxime cada vez mais dos Cullen. Paralelamente, Aro (Michael Sheen) é informado por Irina (Maggie Grace) da existência de Renesmee e de seus raros poderes. Acreditando que ela seja uma ameaça em potencial para o futuro dos Volturi, ele passa a elaborar um plano para atacar os Cullen e eliminar a garota de uma vez por todas. \r\n\r\nElenco: Kristen Stewart, Robert Pattinson, Taylor Lautner.\r\n\r\nPeso aproximado da embalagem c/ produto (Kg):  48g', '40.99', 87, 3, 5, 3, 'Romance/Fantasia'),
+(32, 'AS AVENTURAS DE PI - DVD', 'pi.jpg', 'YANN MARTEL', 'Fox', '2012', '19x13x1', 'Sinopse: Embarque na aventura inigualável nesta obra-prima visual de Ang Lee, baseada num livro campeão de vendas!\r\nPi Patel (Suraj Sharma) é filho do dono de um zoológico localizado em Pondicherry, na Índia. Após anos cuidando do negócio, a família decide vender o empreendimento devido à retirada do incentivo dado pela prefeitura local. A ideia é se mudar para o Canadá, onde poderiam vender os animais para reiniciar a vida. Entretanto, o cargueiro onde todos viajam acaba naufragando devido a uma terrível tempestade. Pi consegue sobreviver em um bote salva-vidas, mas precisa dividir o pouco espaço disponível com uma zebra, um orangotango, uma hiena e um tigre de bengala chamado Richard Parker.\r\n\r\nElenco: Suraj Sharma, Irrfan Khan, Adil Hussain e Tabu\r\n\r\nPeso aproximado da embalagem c/ produto (Kg):  48g\r\n\r\nMais informações: Idiomas de Áudio e Legenda: Inglês, Espanhol e Português\r\n', '20.99', 75, 3, 5, 3, 'Aventura/Drama/Fantasia'),
+(33, 'ANJOS DA LEI - DVD', 'anj.jpg', 'STEPHEN J. CANNELL/NEAL H. MORITZ', 'Sony', '2012', '19x13x1', 'Sinopse: Ex-adversários na escola se tornam amigos na Academia de Polícia. Trocando suas armas e distintivos por mochilas, eles usam sua aparência juvenil numa missão à paisana. O problema é que os adolescentes de hoje não se parecem em nada com os de alguns anos atrás e assim acabam arriscando o caso e a amizade, com hilários resultados desastrosos. \r\nJonah Hill, Channing Tatum e Ice Cube estão nesta comédia de ação de chorar de rir!\r\n\r\nElenco: Jonah Hill, Channing Tatum, Brie Larson, Dave Franco, Rob Riggle, Deray Davis e Ice Cube.\r\n\r\nPeso aproximado da embalagem c/ produto (Kg):  48g', '15.50', 58, 3, 5, 3, 'Ação/Comédia'),
+(34, 'O HOBBIT: UMA JORNADA INESPERADA - DVD', 'hob.jpg', 'J. R. R. TOLKIEN', 'Warner', '2012', '19x13x1', 'Sinopse: O primeiro em uma trilogia de filmes baseada na imortal obra-prima O Hobbit, escrita por J.R.R. Tolkien, O Hobbit - Uma Jornada Inesperada acompanha o personagem-título, Bilbo Bolseiro, que - acompanhado pelo Mago Gandalf e 13 Anões, liderados por Thorin Escudo de Carvalho - adentra uma jornada épica para reclamar o perdido Reino Anão de Erebor das garras do temível Dragão Smaug. A jornada deles os conduzirá por terras selvagens e traiçoeiras habitadas por Goblins, Orcs e mortais Wargs, bem como por uma misteriosa e sinistra figura conhecida apenas como o Necromancer. Ao longo do caminho, o modesto Bilbo Baggins não apenas descobre um lado seu muito ingênuo e mesmo corajoso, que surpreende até ele mesmo. Ele ainda acaba pondo as mãos em um "precioso" anel onde repousa o destino de toda a Terra-média, de um modo que ele sequer poderia imaginar.\r\n\r\nElenco: Ian Mckellen, Martin Freeman, Richard Armitage, James Nesbitt, Ken Stott, Cate Blanchett, Ian Holm, Christopher Lee, Hugo Weaving, Elijah Wood e Andy Serkis Como ''Gollum''.\r\n\r\nPeso aproximado da embalagem c/ produto (Kg): 48 g', '40.05', 32, 3, 5, 3, 'Aventura/Fantasia'),
+(35, 'SOMOS TÃO JOVENS - DVD', 'jov.jpg', 'LETÍCIA FONTOURA', 'Fox', '2013', '19x13x1', 'Sinopse: O jovem Renato Russo não tem tempo a perder: sonha ser um astro do rock. Mas ainda é cedo. Ele precisa estudar, dar aulas de inglês, tranquilizar os pais, curtir a turma, curar dores de amor e, principalmente, arrumar quem toque na sua banda. Do Aborto Elétrico à Legião Urbana, "Somos Tão Jovens" apresenta os primeiros acordes do mito Renato Russo e da turma do Rock Brasília, criadores de sucessos como "Que País é Este", "Geração Coca-Cola", "Eduardo e Mônica" e muitas outras músicas que marcam e transformam fãs geração após geração, iniciando a trajetória que a tornará a maior banda do Rock Brasil e Renato Russo o porta-voz da juventude urbana do país inteiro.\r\n\r\nElenco: Thiago Mendonça, Laila Zaid, Bianca Comparato, Bruno Torres.\r\n\r\nPeso aproximado da embalagem c/ produto (Kg): 48g', '35.00', 25, 3, 5, 3, 'Drama/Cinebiografia'),
+(36, 'O MASSACRE DA SERRA ELÉTRICA: A LENDA CONTINUA - DVD', 'mas.jpg', 'CARL MAZZOCONE', 'Europa Filmes', '2013', '19x13x1', 'Sinopse: Texas, 1974. Depois de cometer uma série de atrocidades contra um grupo de jovens, a bizarra família Sawyer é encurralada em sua casa por um grupo de moradores revoltados, dispostos a tudo, inclusive desrespeitando a ordem do xerife para saírem do local. Um massacre acontece e todos os Sawyer que estavam no local são mortos, sobrando apenas um bebê, que é salvo e adotado por um dos assassinos. \r\n\r\nAnos depois, bem longe dali, a jovem Heather (Alexandra Daddario) planeja uma viagem com seu namorado e uns amigos, entretanto, ela é surpreendida com a notícia que sua avó - de quem ela nunca havia ouvido falar antes - estava morta e deixou para a garota uma herança no Texas. Com o apoio dos amigos, Heather parte para o local e descobre que é descendente dos Sawyer e que sua avó lhe deixou não apenas uma bela propriedade e dinheiro, como também um legado de terror e violência, que atende pelo nome Leatherface - um maníaco que fará de tudo para proteger sua família.\r\n\r\n\r\nElenco: Tania Raymonde Ryan, Kerum Milicki-Sanchez, Kerum Milicki-Sanchez.\r\n\r\nPeso aproximado da embalagem c/ produto (Kg): 48g', '35.70', 58, 3, 6, 3, 'Terror'),
+(37, 'DETONA RALPH - DVD', 'det.jpg', 'CLARK SPENCER', 'Walt Disney', '2013', '19x13x1', 'Sinopse: Ralph (John C. Reilly) é o vilão da Conserta Félix Jr., um popular jogo de fliperama que está completando 30 anos. Apesar de cumprir suas tarefas à perfeição, Ralph gostaria de receber uma atenção maior de Felix Jr. e os demais habitantes do jogo, que nunca o convidam para festas e nem mesmo o tratam bem. Para provar que merece tamanha atenção, ele promete que voltará ao jogo com uma medalha de herói no peito, no intuito de mostrar seu valor. É o início da peregrinação de Ralph por outros jogos, em busca de um meio de obter sua sonhada medalha.\r\n\r\nElenco de vozes: Tiago Abravanel, Rafael Cortez e MariMoon\r\n\r\nPeso aproximado da embalagem c/ produto (Kg): 48g', '31.99', 68, 3, 6, 3, 'Animação 3D/Aventura/Comédia'),
+(38, 'INTOCÁVEIS - DVD', 'int.jpg', 'PHILIPPE POZZO DI BORGO', 'Califórnia Filmes', '2012', '19x13x1', 'Sinopse: O fenômeno mundial "Intocáveis" traz a história de um aristocrata que contrata um jovem para ser o seu cuidador após um acidente de parapente, o que o deixou tetraplégico. O que era para ser um período experimental acaba virando uma grande aventura. Amizade, companheirismo e confiança são os elementos que transformam esse filme tocante e inesquecível.\r\n\r\nPeso aproximado da embalagem c/ produto (Kg): 48g\r\n\r\nMais informações: Idiomas de Áudio: Francês e Português\r\n', '23.90', 89, 3, 6, 3, 'Drama/Comédia'),
+(39, 'SOMBRAS DA NOITE - DVD', 'som.jpg', 'TIM BURTON', 'Warner', '2012', '19x13x1', 'Sinopse: Fruto da imaginação maravilhosamente deformada de Tim Burton chega até você à história de Barnabas Collins, um impetuoso aristocrata que é transformado em vampiro por uma amante rejeitada e confinado em uma sepultura por dois séculos. Emergindo do seu caixão para o mundo em 1972, ele retorna para o que um dia foi seu majestoso lar, somente para encontrar os disfuncionais descendentes da família Collins que ainda restam. Determinado a devolver o bom nome da família à glória perdida, Barnabas é frustrado em cada uma de suas ações por sua antiga amante, a sedutora bruxa Angelique nesta "selvagem e imaginativa aventura".\r\n\r\nElenco: Johnny Depp, Eva Green, Helena Borran Carter\r\n\r\nPeso aproximado da embalagem c/ produto (Kg): 48g\r\nMais informações: Idiomas de Áudio e Legenda: Inglês e Português \r\n', '14.99', 69, 3, 6, 3, 'Comédia/Fantasia/Horror'),
+(40, 'AS VANTAGENS DE SER INVISÍVEL - DVD', 'van.jpg', 'STEPHEN CHBOSKY', 'Paris Filmes', '2012', '19x13x1', 'Sinopse: Baseado no romance escrito por Stephen Chbosky, As Vantagens de Ser Invisível conta a história de Charlie (Logan Lerman), um menino de 15 anos simpático e ingênuo, tem que lidar com seu primeiro amor, o suicídio de seu melhor amigo e sua própria doença mental enquanto luta para encontrar um grupo de pessoas o qual ele pertence. O calouro introvertido fica sobre a guarda de Sam (Emma Watson) e Patrick (Ezra Miller), que irão introduzi-lo ao mundo real.\r\n\r\nElenco: Logan Lerman, Emma Watson, Ezra Miller\r\n\r\nPeso aproximado da embalagem c/ produto (Kg): 48g', '28.99', 48, 3, 6, 3, 'Comédia/Romance');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tb_venda`
+--
+
+CREATE TABLE IF NOT EXISTS `tb_venda` (
+  `cod_venda` int(11) NOT NULL auto_increment,
+  `data_compra` varchar(10) NOT NULL,
+  `data_vencimento` varchar(10) NOT NULL,
+  `cod_pagamento` int(11) NOT NULL,
+  `cod_cliente` int(11) NOT NULL,
+  `uf_frete` char(2) NOT NULL,
+  `complemento_venda` varchar(80) default NULL,
+  `cep_venda` varchar(9) NOT NULL,
+  `cidade_venda` varchar(80) NOT NULL,
+  `end_venda` varchar(80) NOT NULL,
+  PRIMARY KEY  (`cod_venda`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=137 ;
+
+--
+-- Extraindo dados da tabela `tb_venda`
+--
+
+INSERT INTO `tb_venda` (`cod_venda`, `data_compra`, `data_vencimento`, `cod_pagamento`, `cod_cliente`, `uf_frete`, `complemento_venda`, `cep_venda`, `cidade_venda`, `end_venda`) VALUES
+(115, '05/11/2013', '12/11/2013', 1, 6, 'sp', 'saf', 'afsdf', 'asdd', 'fsaddf'),
+(114, '05/11/2013', '12/11/2013', 1, 6, 'sp', 'saf', 'afsdf', 'asdd', 'fsaddf'),
+(113, '05/11/2013', '12/11/2013', 1, 6, 'sp', 'saf', 'afsdf', 'asdd', 'fsaddf'),
+(112, '05/11/2013', '12/11/2013', 1, 6, 'sp', 'saf', 'afsdf', 'asdd', 'fsaddf'),
+(111, '05/11/2013', '12/11/2013', 1, 6, 'sp', 'saf', 'afsdf', 'asdd', 'fsaddf'),
+(110, '05/11/2013', '12/11/2013', 1, 6, 'sp', 'saf', 'afsdf', 'asdd', 'fsaddf'),
+(109, '05/11/2013', '12/11/2013', 1, 6, 'sp', 'saf', 'afsdf', 'asdd', 'fsaddf'),
+(108, '05/11/2013', '12/11/2013', 1, 6, 'sp', 'saf', 'afsdf', 'asdd', 'fsaddf'),
+(107, '04/11/2013', '11/11/2013', 1, 6, 'sp', 'saf', 'afsdf', 'asdd', 'fsaddf'),
+(106, '04/11/2013', '11/11/2013', 1, 6, 'sp', 'saf', 'afsdf', 'asdd', 'fsaddf'),
+(105, '04/11/2013', '11/11/2013', 1, 6, 'sp', 'saf', 'afsdf', 'asdd', 'fsaddf'),
+(104, '04/11/2013', '11/11/2013', 1, 6, 'sp', 'saf', 'afsdf', 'asdd', 'fsaddf'),
+(103, '04/11/2013', '11/11/2013', 1, 6, 'sp', 'saf', 'afsdf', 'asdd', 'fsaddf'),
+(102, '04/11/2013', '11/11/2013', 1, 6, 'sp', 'saf', 'afsdf', 'asdd', 'fsaddf'),
+(101, '04/11/2013', '11/11/2013', 1, 8, 'sp', 'saf', 'afsdf', 'asdd', 'fsaddf'),
+(100, '04/11/2013', '11/11/2013', 1, 8, 'sp', 'saf', 'afsdf', 'asdd', 'fsaddf'),
+(99, '04/11/2013', '11/11/2013', 1, 8, 'sp', 'saf', 'afsdf', 'asdd', 'fsaddf'),
+(98, '04/11/2013', '11/11/2013', 1, 8, 'sp', 'saf', 'afsdf', 'asdd', 'fsaddf'),
+(97, '04/11/2013', '11/11/2013', 1, 8, 'sp', 'saf', 'afsdf', 'asdd', 'fsaddf'),
+(96, '04/11/2013', '11/11/2013', 1, 8, 'sp', 'saf', 'afsdf', 'asdd', 'fsaddf'),
+(95, '03/11/2013', '10/11/2013', 1, 6, 'SP', 'Asd', '12345-129', 'SÃ£o', 'Rua'),
+(94, '03/11/2013', '10/11/2013', 1, 6, 'SP', 'Asd', '12345-129', 'SÃ£o', 'Rua'),
+(116, '11/11/2013', '18/11/2013', 1, 6, 'sp', 'saf', 'afsdf', 'asdd', 'fsaddf'),
+(117, '11/11/2013', '18/11/2013', 1, 6, 'sp', 'saf', 'afsdf', 'asdd', 'fsaddf'),
+(118, '17/11/2013', '24/11/2013', 1, 6, 'sp', 'saf', 'afsdf', 'asdd', 'fsaddf'),
+(119, '17/11/2013', '24/11/2013', 1, 6, 'sp', 'saf', 'afsdf', 'asdd', 'fsaddf'),
+(120, '17/11/2013', '24/11/2013', 1, 6, 'sp', 'saf', 'afsdf', 'asdd', 'fsaddf'),
+(121, '17/11/2013', '24/11/2013', 1, 6, 'sp', 'saf', 'afsdf', 'asdd', 'fsaddf'),
+(122, '17/11/2013', '24/11/2013', 1, 6, 'sp', 'saf', 'afsdf', 'asdd', 'fsaddf'),
+(123, '17/11/2013', '24/11/2013', 1, 6, 'sp', 'saf', 'afsdf', 'asdd', 'fsaddf'),
+(124, '17/11/2013', '24/11/2013', 1, 6, 'sp', 'saf', 'afsdf', 'asdd', 'fsaddf'),
+(125, '17/11/2013', '24/11/2013', 1, 6, 'sp', 'saf', 'afsdf', 'asdd', 'fsaddf'),
+(126, '17/11/2013', '24/11/2013', 1, 6, 'sp', 'saf', 'afsdf', 'asdd', 'fsaddf'),
+(127, '17/11/2013', '24/11/2013', 1, 6, 'sp', 'saf', 'afsdf', 'asdd', 'fsaddf'),
+(128, '17/11/2013', '24/11/2013', 1, 6, 'sp', 'saf', 'afsdf', 'asdd', 'fsaddf'),
+(129, '17/11/2013', '24/11/2013', 1, 6, 'sp', 'saf', 'afsdf', 'asdd', 'fsaddf'),
+(130, '17/11/2013', '24/11/2013', 1, 6, 'sp', 'saf', 'afsdf', 'asdd', 'fsaddf'),
+(131, '17/11/2013', '24/11/2013', 1, 6, 'sp', 'saf', 'afsdf', 'asdd', 'fsaddf'),
+(132, '17/11/2013', '24/11/2013', 1, 6, 'sp', 'saf', 'afsdf', 'asdd', 'fsaddf'),
+(133, '17/11/2013', '24/11/2013', 1, 6, 'sp', 'saf', 'afsdf', 'asdd', 'fsaddf'),
+(134, '17/11/2013', '24/11/2013', 1, 6, 'sp', 'saf', 'afsdf', 'asdd', 'fsaddf'),
+(135, '17/11/2013', '24/11/2013', 1, 6, 'sp', 'saf', 'afsdf', 'asdd', 'fsaddf'),
+(136, '17/11/2013', '24/11/2013', 1, 6, 'sp', 'saf', 'afsdf', 'asdd', 'fsaddf');

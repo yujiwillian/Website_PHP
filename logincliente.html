@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Betacity - Fazer Login</title>
+<!--Icone do site-->
+<link rel="shortcut icon" href="favicon.ico">
+<!--Estilo css usado na página-->
+<style type="text/css">
+ 
+		
+		.tudo {
+	background:#F60;  
+border-radius: 10px;
+border:#000 double 4px;
+margin: 20px 6 0 10px;
+width: 664px;
+height: 584px;
+float:left;
+position:relative;
+	
+}
+
+#ok
+{
+	background-color:#000000;
+	color:#FF9900;
+	width:100px;
+	height:50px;
+}
+
+#ok:active
+{
+	background-color:#FF6600;
+	color:#000000;
+}
+
+#ok:hover
+{
+	background-color:#000000;
+	color:#FFFFFF;
+}
+		</style>
+</head>
+<body>
+<div class="tudo">
+<!--Efetua a ação no arquivo php-->
+<form id="form" name="clientelogin" method="post" action="entrarcliente.php">
+  <h1 align="center"><strong>USUÁRIO:
+    <input name="usuario" type="text"  id="textfield" />
+  </strong></h1>
+  <p>&nbsp; </p>
+  <h1 align="center"> <strong>SENHA: </strong>
+<input type="password" name="senha" id="textfield2" />
+    <br /><br />
+    <input type="submit" name="button" id="ok" value="OK" />
+  </h1>
+</form>
+<center>
+<a href="esquecicliente.html">Esqueci a senha ou usuário</a>
+<center><h1>&nbsp;</h1>
+  <h1>VOCÊ NÃO POSSUI UMA CONTA EM NOSSO SITE?</h1>
+</center>
+<a href="cadastro.html"><input type="image" name="cadastrar" id="cad" src="cadastre.png" height="60" /></a>
+<br />
+</center>
+</div>
+</html>
