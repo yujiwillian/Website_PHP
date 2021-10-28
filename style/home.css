@@ -1,0 +1,97 @@
+
+
+/* Formtação da pagina home */
+
+*{
+	margin: 20px;
+	 
+}
+
+
+
+body {
+background: #000;
+margin: 5px;
+Font-family:Calibri;
+
+
+}
+
+.vitrine{
+
+padding:0;
+background:#F60;  
+border-radius: 10px;
+width: 600px;
+height: 205px;
+border:#000 double 6px;
+
+} 
+
+.parcerias{	
+background:#F60;  
+border-radius: 10px;
+border:#000 double 4px;
+margin: 20px 6 0 10px;
+width: 350px;
+height: 80px;
+float:right;
+position:relative;
+right:7%;
+	
+	
+
+}
+
+.resenhas{
+
+background:#F60;  
+border-radius: 10px;
+border:#000 double 4px;
+width: 360px;
+height: 400px;
+float:left;
+Font-family:Calibri;
+font-size:13px;
+
+	
+	
+}
+
+.ficha{ 
+
+background:#F60;  
+border-radius: 10px;
+border:#000 double 4px;
+margin: 23px 0 0 0px;
+width: 200px;
+height: 530px;
+float:left;
+font-size:11px;
+
+}
+
+
+.dv_noticias
+{ 
+
+margin:30px;
+padding:0;
+background:#F60;  
+border-radius: 10px;
+border:#000 double 6px;
+width: 600px;
+height: 400px;
+float:right;
+}
+
+#feed {
+margin:22px;
+height:97%;
+min-height: 300px;
+width: 580px;
+position:relative;
+top:-138px;
+left:-3px;
+}
+

@@ -1,0 +1,77 @@
+
+/* menu  com sub's*/ 
+
+*{
+	margin: 0;
+}
+
+
+Body{
+margin: 5px;
+Font-family:Arial;
+Fonte-size:12px;}
+
+#nav ul
+{ 
+margin:0;
+padding:0;
+float: left;
+}
+
+
+#nav li{
+border:4px #F60 solid;	
+margin: 20px 0 0 0;
+list-style: none;
+background:#F60;  
+border-radius: 10px;
+width: 200px;
+padding: 0px 0 20x 0
+
+ }
+ 
+ 
+ #nav li a {
+ display:block;
+ padding:5px; 
+ text-decoration:none;
+ color:#FFF;
+ margin: 5px 0 0 0;
+
+ 
+ 
+ }
+
+ 
+  #nav li a:hover {
+margin: 3px 0 0 0;
+list-style: none;
+border: 4px #666 solid;
+background:#666;
+border-radius: 10px;
+width: 200px;
+padding: 3px 0 3px 0
+	
+}
+
+/*Li & UL , submenus*/
+
+ #nav li ul { 
+ display:none;
+
+  }
+ 
+
+   
+ #nav li:hover ul
+  { display:block;
+    text-decoration:none; 
+    color:#FFF;
+    
+ 
+ }
+
+
+
+ 
+</style> 

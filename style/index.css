@@ -1,0 +1,155 @@
+
+	*{
+
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    outline: 0;
+    font-weight: inherit;
+    font-style: inherit;
+    font-size: 100%;
+    font-family: inherit;
+    
+}
+
+body {
+    line-height: 1;
+    background-image:url(../imagens/back5.png);
+}
+
+.tudo {
+	height: auto;
+	width: 900px;
+	margin: auto;
+	background-color: #F60;
+	border: none;	
+}
+
+/* formatação do banner  menu horizontal*/ 
+
+.banner {
+Colocando um arquivo em flash
+<object width="900" height="400" loop="no">
+<param name="movie" value="betacityflashbanner.swf">
+<embed src="betacityflashbanner.swf" width="900" height="263" loop="no">
+background:url(../imagens/banner/betacityflashbanner.swf);
+</embed>	
+</object>
+	
+}
+
+.menu1 {
+	width: 0px;
+	background-color:#000000;
+	top:100px;	
+	float:left;
+}
+
+.menu2 {
+	height:500px;
+	width:700px;	
+	float:right;
+	background-color:#000000;
+	
+}
+
+.conteudo {
+	height: 600px;
+	width: 700px;
+	background-color: #999999;
+	float: right;
+	border:none;	
+	
+}
+
+
+/* Menu CSS 2*/ 
+#cssmenu {
+width:1000px;
+padding: 8px;
+margin-top:15px;
+Font-family: Calibri;
+list-style:none; 
+float:center;
+
+}
+
+#cssmenu ul{
+   border:0px #F60 solid;
+   margin:0;
+   padding:0;
+   border-bottom:none;
+
+}
+
+#cssmenu li{
+	float: center;
+	display: inline;
+	padding: 25px;
+
+
+}
+
+
+#cssmenu a {
+text-decoration:none; 
+color:white;
+ display:inline;
+
+	
+}
+/* design do botão  menu horizontal*/ 
+
+.botao	{
+	
+	background:#333;
+    border:2px #000 solid;
+    display: inline;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	padding: .40em 14px .40em;
+border-radius: 8px; 13.
+-moz-border-radius: 8px;14.
+cursor:pointer; 
+
+
+	
+}
+/* formatação do botão  menu horizontal*/ 
+
+.botao:hover	{
+	
+border:2px #000 solid;
+position: relative;
+top: 1px;
+left: 1px;
+text-shadow: 0 0 10px #fff, 0 0 20px #F60, 0 0 20px #F60, 0 0 20px 
+#F60, 0 0 70px #F60, 0 0 80px #F60, 0 0 100px #F60, 0 0 150px #F60;
+
+
+}
+		
+	
+		
+ /* formatação do rodapé  menu horizontal*/ 
+
+#rodape
+{
+    width:700px;
+    height: 20px;
+	border:0;
+	text-align: center;
+	background-color:#F60;
+	color: #FFFFFF;
+}
+
+.conteudox {
+	height: 70px;
+	width: 700px;
+	background-color: #333333;
+	float: right;
+	border:none;	
+	overflow:auto;
+}
